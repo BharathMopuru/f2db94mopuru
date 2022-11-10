@@ -1,13 +1,13 @@
 //var express = require('express');
 //var router = express.Router();
 
-class Dog {
-  constructor(dog_Name, dog_Price, dog_Breed){
-    this.dog_Name = dog_Name;
-    this.dog_Price = dog_Price;
-    this.dog_Breed = dog_Breed;
-  }
-}
+// class Dog {
+//   constructor(dog_Name, dog_Price, dog_Breed){
+//     this.dog_Name = dog_Name;
+//     this.dog_Price = dog_Price;
+//     this.dog_Breed = dog_Breed;
+//   }
+// }
 
 /* GET home page. */
 /*router.get('/', function(req, res, next) {
