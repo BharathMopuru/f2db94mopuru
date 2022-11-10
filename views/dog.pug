@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  - var results = dog;
+  - var results = [{dog_Name:"jack" , dog_Price: 4000, dog_Breed:"pug"},{dog_Name:"doller" , dog_Price: 3000, dog_Breed:"Bulldog"},{dog_Name:"gun" , dog_Price: 4000, dog_Breed:"Retriever"}]
   div(class="container-fluid")
         each value,index in results 
           div(class="row" ,onclick=`buy(${index})`)
