@@ -19,10 +19,12 @@
 */
 var express = require('express');
 
-const dog_controlers= require('../controllers/dog');
+const dog_controllers= require('../controllers/dog');
 var router = express.Router();
 /* GET costumes */
-router.get('/', dog_controlers.dog_view_all_Page );
+router.get('/', dog_controllers.dog_view_all_Page );
+// GET request for one costume. 
+router.get('/dog/:id', dog_controllers.dog_detail); 
 
 module.exports = router;
 

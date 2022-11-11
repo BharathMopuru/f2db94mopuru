@@ -6,5 +6,4 @@ const dogSchema = mongoose.Schema({
    
 }) 
  
-module.exports = mongoose.model("Dog", 
-dogSchema) 
+module.exports = mongoose.model("Dog", dogSchema) 
