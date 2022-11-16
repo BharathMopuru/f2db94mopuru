@@ -2,17 +2,19 @@ extends layout
  
 block content 
   h1= title 
- 
-  - let dogid = toShow._id 
-  - let dog_Name = toShow.dog_Name 
-  - let dog_Price = toShow.dog_Price 
-  - let dog_Breed = toShow.dog_Breed 
+  if (toShow == null) 
+    h2 No instance to update with this id. plese verify. 
+  else 
+   - let dogid = toShow._id 
+   - let dog_Name = toShow.dog_Name 
+   - let dog_Price = toShow.dog_Price 
+   - let dog_Breed = toShow.dog_Breed 
    
-  div.row(class='mb-2') 
+   div.row(class='mb-2') 
     div.mr-1 ID is 
     div #{dogid} 
-  - let actionid = "/resource/dog/" + dogid 
-  form(id='DogForm', action= actionid, method="PUT") 
+   - let actionid = "/resource/dog/" + dogid 
+   form(id='DogForm', action= actionid, method="PUT") 
     div.form-group 
         label.dogAttr(for='dog_Name') Dog Name 
         input#dog_Name(type='text', name='dog_Name', value= dog_Name ) 
@@ -24,7 +26,7 @@ block content
         input#dog_Price(type='number', name='dog_Price', value= dog_Price ) 
     input(type="submit") 
  
-  script. 
+   script. 
     document.forms['DogForm'].addEventListener('submit', (event) => { 
       event.preventDefault(); 
       // TODO do something here to show user that form is being submitted 

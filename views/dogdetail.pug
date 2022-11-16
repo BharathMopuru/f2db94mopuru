@@ -1,11 +1,14 @@
 extends layout
 block content
  h1= title
- - let dogid = toShow._id
- - let dog_Name = toShow.dog_Name
- - let dog_Price = toShow.dog_Price
- - let dog_Breed = toShow.dog_Breed
- div
+ if (toShow == null) 
+    h2 No instance with this id please verify.
+ else 
+  - let dogid = toShow._id
+  - let dog_Name = toShow.dog_Name
+  - let dog_Price = toShow.dog_Price
+  - let dog_Breed = toShow.dog_Breed
+  div
     div.row
         div(class='dogAttr mr-3') Dog ID is:
         div #{dogid}

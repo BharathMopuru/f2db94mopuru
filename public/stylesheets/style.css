@@ -12,3 +12,29 @@ a {
   background-color: aquamarine;
   width: 120px;
  }
+
+.dogpage{
+  background-color: lightgrey;
+  border: 1mm;
+  padding: 1%;
+  
+}
+.head{
+  background-color: lightblue;
+  color: darkmagenta;
+  text-align: center;
+  animation-name: head;
+  animation-duration: 4s;
+}
+@keyframes head {
+  from {background-color: greenyellow;}
+  to {background-color: orange;}
+  from {color: aliceblue;}
+  to {color: red;}
+}
+
+#val{
+  color: red;
+}
+
+

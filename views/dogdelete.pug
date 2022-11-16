@@ -1,7 +1,7 @@
 extends layout 
  
 block content 
-  h1= title 
+  h1(class='head')= title 
  
   if (toShow == null) 
     h2 No instance to delete 
@@ -12,19 +12,19 @@ block content
     - let dog_Breed = toShow.dog_Breed 
     - let actionid = "/resource/dog/" + dogid 
     script let actionid = "#{actionid}" 
-    div 
+    div(class='dogpage') 
       div.row 
         div(class='dogAttr mr-3') Dog ID is: 
-        div #{dogid} 
+        div(id='val') #{dogid} 
       div.row 
         div(class='dogAttr mr-3') Dog Name is: 
-        div #{dog_Name} 
+        div(id='val') #{dog_Name} 
       div.row 
         div(class='dogAttr mr-3') Dog Breed is: 
-        div #{dog_Breed} 
+        div(id='val') #{dog_Breed} 
       div.row 
         div(class='dogAttr mr-3') Dog Price is: 
-        div #{dog_Price} 
+        div(id='val') #{dog_Price} 
  
     button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
     button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
