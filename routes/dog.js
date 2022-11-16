@@ -26,5 +26,8 @@ router.get('/', dog_controllers.dog_view_all_Page );
 // GET request for one costume. 
 router.get('/dog/:id', dog_controllers.dog_detail); 
 
+/* GET detail costume page */
+router.get('/detail', dog_controllers.dog_view_one_Page);
+
 module.exports = router;
 

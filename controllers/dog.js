@@ -67,10 +67,22 @@ exports.dog_create_post = async function(req, res) {
 exports.dog_create_post = function(req, res) {
  res.send('NOT IMPLEMENTED: Dog create POST');
 };*/
-// Handle Dog delete form on DELETE.
+/*// Handle Dog delete form on DELETE.
 exports.dog_delete = function(req, res) {
  res.send('NOT IMPLEMENTED: Dog delete DELETE ' + req.params.id);
-};
+};*/
+// Handle Dog delete on DELETE. 
+exports.dog_delete = async function(req, res) { 
+    console.log("delete "  + req.params.id) 
+    try { 
+        result = await Dog.findByIdAndDelete( req.params.id) 
+        console.log("Removed " + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": Error deleting ${err}}`); 
+    } 
+}; 
 /*// Handle Dog update form on PUT.
 exports.dog_update_put = function(req, res) {
  res.send('NOT IMPLEMENTED: dog update PUT' + req.params.id);
@@ -95,4 +107,18 @@ ${JSON.stringify(req.body)}`)
 failed`); 
     } 
 }; 
+
+// Handle a show one view with id specified by query
+exports.dog_view_one_Page = async function(req, res) {
+    console.log("single view for id " + req.query.id)
+    try{
+    result = await Dog.findById( req.query.id)
+    res.render('dogdetail',
+   { title: 'Dog Detail', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+};
  
