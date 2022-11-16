@@ -19,7 +19,7 @@ exports.dog_list = function(req, res) {
 exports.dog_view_all_Page = async function(req, res) {
     try{
     theDogs = await Dog.find();
-    res.render('dog', { title: 'Dog Search Results', results: theDogs });
+    res.render('dog', { title: 'Dog Search Results', result: theDogs });
     }
     catch(err){
     res.status(500);
@@ -143,6 +143,20 @@ exports.dog_update_Page =  async function(req, res) {
     try{ 
         let result = await Dog.findById(req.query.id) 
         res.render('dogupdate', { title: 'Dog Update', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
+
+// Handle a delete one view with id from query 
+exports.dog_delete_Page = async function(req, res) { 
+    console.log("Delete view for id "  + req.query.id) 
+    try{ 
+        result = await Dog.findById(req.query.id) 
+        res.render('dogdelete', { title: 'Dog Delete', toShow: 
+result }); 
     } 
     catch(err){ 
         res.status(500) 
