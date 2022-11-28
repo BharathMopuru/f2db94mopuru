@@ -30,10 +30,26 @@ router.get('/dog/:id', dog_controllers.dog_detail);
 router.get('/detail', dog_controllers.dog_view_one_Page);
 /* GET create dog page */ 
 router.get('/create', dog_controllers.dog_create_Page); 
+
+// A little function to check if we have an authorized user and continue on or 
+// redirect to login. 
+const secured = (req, res, next) => { 
+  if (req.user){ 
+    return next(); 
+  } 
+  req.session.returnTo = req.originalUrl; 
+  res.redirect("/login"); 
+} 
+
+
 /* GET create update page */ 
-router.get('/update', dog_controllers.dog_update_Page); 
+router.get('/update', secured, dog_controllers.dog_update_Page); 
+
+
 /* GET delete dog page */ 
 router.get('/delete', dog_controllers.dog_delete_Page); 
+
+ 
 
 module.exports = router;
 
