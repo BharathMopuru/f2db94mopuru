@@ -3,15 +3,24 @@ extends layout
 block content
   h1= title
   - var results = result //[{dog_Name:"jack" , dog_Price: 4000, dog_Breed:"pug"},{dog_Name:"doller" , dog_Price: 3000, dog_Breed:"Bulldog"},{dog_Name:"gun" , dog_Price: 4000, dog_Breed:"Retriever"}]
+      - let destinationc = `dispatch(\"/dog/create\")` 
+      button.btn( class="btn btn-outline-success  ml-1", onclick= destinationc) Create
+
   div(class="container-fluid")
     div(class="row m-1") 
         each value,index in results 
           - let destination = `dispatch(\"/dog/update?id=${value._id}\")` 
+          - let destination1 = `dispatch(\"/dog/detail?id=${value._id}\")` 
+          - let destination2 = `dispatch(\"/dog/delete?id=${value._id}\")` 
+
               div(class="row" ,onclick=`buy(${index})`)
                 div(class="col-sm-2") Dog Name: #{value.dog_Name}
                 div(class="col-sm-2") Dog Price: #{value.dog_Price}
                 div(class="col-sm-2") Dog Breed: #{value.dog_Breed}
-          button.btn( class="btn-primary ml-1", onclick= destination) Update 
+          button.btn( class="btn btn-outline-primary ml-1", onclick= destination) Update 
+          button.btn( class="btn btn-outline-info  ml-1", onclick= destination1) Detail 
+          button.btn( class="btn btn-outline-danger ml-1", align="right", onclick= destination2) Delete 
+          
   script. 
     function dispatch(path){ 
       window.location.href=path 
